@@ -9,7 +9,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-    const { type, role, level, techstack, amount, userid } =
+    const { type, role, level, techstack, amount, userId } =
         await request.json();
 
     try {
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
             level: level,
             techstack: techstack.split(","),
             questions: JSON.parse(questions),
-            userId: userid,
+            userId,
             finalized: true,
             coverImage: getRandomInterviewCover(),
             createdAt: new Date().toISOString(),
