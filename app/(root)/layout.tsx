@@ -4,21 +4,21 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
-  const isUserAuthenticated = await isAuthenticated();
+    const isUserAuthenticated = await isAuthenticated();
 
-  if (!isUserAuthenticated) redirect("/auth/sign-in");
+    if (!isUserAuthenticated) redirect("/sign-in");
 
-  return (
-    <div className="root-layout">
-      <nav>
-        <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.svg" alt="Logo" width={38} height={32} />
-          <h2 className="text-primary-200">PrepPal</h2>
-        </Link>
-      </nav>
-      {children}
-    </div>
-  );
+    return (
+        <div className="root-layout">
+            <nav>
+                <Link href="/" className="flex items-center gap-2">
+                    <Image src="/logo.svg" alt="Logo" width={38} height={32} />
+                    <h2 className="text-primary-200">PrepPal</h2>
+                </Link>
+            </nav>
+            {children}
+        </div>
+    );
 };
 
 export default Layout;
