@@ -13,8 +13,8 @@ import Link from "next/link";
 const MainPage = async () => {
     const user = await getCurrentUser();
     const [userInterviews, allInterviews] = await Promise.all([
-        user?.id ? getInterviewsByUserId(user.id) : [],
-        getLatestInterviews({ userId: user?.id ?? "" }),
+        getInterviewsByUserId(user?.id || ""),
+        getLatestInterviews({ userId: user?.id || "" }),
     ]);
 
     const hasPastInterviews = (userInterviews ?? []).length > 0;
